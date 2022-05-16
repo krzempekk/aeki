@@ -12,10 +12,10 @@ namespace StarterAssets
 	public class FirstPersonController : MonoBehaviour
 	{
 		[Header("Player")]
-		// [Tooltip("Move speed of the character in m/s")]
-		// public float MoveSpeed = 4.0f;
-		// [Tooltip("Sprint speed of the character in m/s")]
-		// public float SprintSpeed = 6.0f;
+		[Tooltip("Move speed of the character in m/s")]
+		public float MoveSpeed = 4.0f;
+		[Tooltip("Sprint speed of the character in m/s")]
+		public float SprintSpeed = 6.0f;
 		[Tooltip("Rotation speed of the character")]
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
@@ -69,8 +69,6 @@ namespace StarterAssets
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 
-		private PlayerStats _stats;
- 
 		private const float _threshold = 0.01f;
 		
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
@@ -89,7 +87,6 @@ namespace StarterAssets
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 			_playerInput = GetComponent<PlayerInput>();
-			_stats = GetComponent<PlayerStats>();
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
@@ -140,8 +137,7 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-
-			float targetSpeed = _input.sprint ? _stats.SprintSpeed : _stats.MoveSpeed;
+			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
