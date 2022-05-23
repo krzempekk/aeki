@@ -6,19 +6,16 @@ public class FollowPlayer : MonoBehaviour
 {
     public Transform player; //drag and stop player object in the inspector
     public float minDistance;
+    public float hitDistance;
     public float speed;
     RaycastHit hit;
-    Rigidbody rigidbody;
-
-    public void Start()
-    {
-        //Fetch the Rigidbody from the GameObject with this script attached
-        rigidbody = GetComponent<Rigidbody>();
-    }
 
     public void Update()
     {
-        transform.LookAt(player.transform);
+
+        Vector3 playerPosition2D = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+
+        transform.LookAt(playerPosition2D);
 
         Vector3 rayPosition = transform.position + new Vector3(0, 2, 0);
         Vector3 playerHeadPosition = player.position + new Vector3(0, 1.5f, 0);
@@ -26,19 +23,14 @@ public class FollowPlayer : MonoBehaviour
         Vector3 forward = (playerHeadPosition - rayPosition) * 100;
         Debug.DrawRay(rayPosition, forward, Color.green);
 
-        if (Vector3.Distance(rayPosition, playerHeadPosition) < minDistance)
+        float distance = Vector3.Distance(rayPosition, playerHeadPosition);
+        if (distance < minDistance && distance > hitDistance)
         {
             if (Physics.Raycast(rayPosition, (playerHeadPosition - rayPosition), out hit, Mathf.Infinity))
             {
-                Debug.Log(hit.transform.name);
                 if (hit.transform.name == "PlayerCapsule")
                 {
-                    Debug.Log("should go");
-
-
-                    Vector3 playerPosition2D = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-
-                    //rigidbody.MovePosition(playerPosition2D * Time.deltaTime * speed);
+                    //Debug.Log("enemy should go");
 
                     transform.position = Vector3.MoveTowards(transform.position, playerPosition2D, speed);
                 }
