@@ -14,7 +14,7 @@ public class MazeController : MonoBehaviour {
     Vector3 GetTilePosition(Vector2 pos) {
         Vector3 basePosition = gameObject.transform.position;
 
-        return new Vector3(basePosition.x + pos.x * tileDims.x, basePosition.y, basePosition.z - pos.y * tileDims.y);
+        return new Vector3(basePosition.x + pos.y * tileDims.x, basePosition.y, basePosition.z - pos.x * tileDims.y);
     } 
 
     List<Vector2> GetTilesToUncover(Vector2 pos) {
@@ -43,7 +43,7 @@ public class MazeController : MonoBehaviour {
         tileDims = new Vector2(tileSize.x, tileSize.z);
 
         string[] rawLayout = new string[]{
-            "......S.",
+            "x.....Sx",
             "......x.",
             ".bxx..x.",
             "...x..x.",
@@ -53,7 +53,7 @@ public class MazeController : MonoBehaviour {
             ".x.x....",
             ".x.f....",
             ".x......",
-            ".xx...."
+            "xxx....x"
         };
 
 
@@ -92,7 +92,11 @@ public class MazeController : MonoBehaviour {
             if(!furnitureMap.TryGetValue(tilePos, out furniture)) {
                 InstantiateTile(tilePos);
             } else {
-                Instantiate(furniture, GetTilePosition(tilePos), furnitureRotationMap[tilePos]);
+                // Instantiate(furniture, GetTilePosition(tilePos), furnitureRotationMap[tilePos]);
+                Instantiate(furniture, GetTilePosition(tilePos), Quaternion.Euler(0, 0, 0));
+                Debug.Log(furniture.transform.rotation);
+                furniture.transform.LookAt(new Vector3(10, 100, 10));
+                Debug.Log(furniture.transform.rotation);
             }
         }
     }
