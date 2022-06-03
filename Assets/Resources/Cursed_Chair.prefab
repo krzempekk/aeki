@@ -29,19 +29,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 449048, guid: 094b1ce88c26fa145ae8b34a1712b67e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.58683765
+      value: 0.34455553
       objectReference: {fileID: 0}
     - target: {fileID: 449048, guid: 094b1ce88c26fa145ae8b34a1712b67e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4767208
+      value: 0.014726775
       objectReference: {fileID: 0}
     - target: {fileID: 449048, guid: 094b1ce88c26fa145ae8b34a1712b67e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5079958
+      value: 0.9377942
       objectReference: {fileID: 0}
     - target: {fileID: 449048, guid: 094b1ce88c26fa145ae8b34a1712b67e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.4126732
+      value: -0.040082607
       objectReference: {fileID: 0}
     - target: {fileID: 449048, guid: 094b1ce88c26fa145ae8b34a1712b67e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7416061202461768503}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 624c6f08b8806c64b88c7211da1bac21, type: 3}
   m_Name: 
@@ -263,8 +263,8 @@ MonoBehaviour:
     showInEditor: 1
     calculateInWorldSpace: 0
   combinedBounds:
-    m_Center: {x: -10.580404, y: 3.380392, z: 6.349673}
-    m_Extent: {x: 1.377918, y: 1.7552199, z: 1.4823357}
+    m_Center: {x: -9.356412, y: 2.130783, z: 6.014389}
+    m_Extent: {x: 1.4189413, y: 0.99748313, z: 1.5151227}
   showDebugLines: 0
   debugLinesDistance: 1
   showMeshInEditor: 1
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7416061202461768503}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c619fa441a02064f9a3ea3f408a6355, type: 3}
   m_Name: 

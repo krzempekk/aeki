@@ -67,19 +67,19 @@ public class MazeController : MonoBehaviour {
                 } else if(rawLayout[i][j] == 'b') {
                     hiddenTiles.Add(vec);
                     furnitureMap.Add(vec, Resources.Load<GameObject>("Cursed_Bed"));
-                    furnitureRotationMap.Add(vec, Quaternion.Euler(15, 0, -45));
+                    furnitureRotationMap.Add(vec, Quaternion.Euler(-80, 4, 20));
                 } else if(rawLayout[i][j] == 'c') {
                     hiddenTiles.Add(vec);
                     furnitureMap.Add(vec, Resources.Load<GameObject>("Cursed_Chair"));
-                    furnitureRotationMap.Add(vec, Quaternion.Euler(-120, 170, 200));
+                    furnitureRotationMap.Add(vec, Quaternion.Euler(-40, -20, -90));
                 } else if(rawLayout[i][j] == 'o') {
                     hiddenTiles.Add(vec);
                     furnitureMap.Add(vec, Resources.Load<GameObject>("Cursed_Cooker"));
-                    furnitureRotationMap.Add(vec, Quaternion.Euler(305, 295, 300));
+                    furnitureRotationMap.Add(vec, Quaternion.Euler(-40, 40, -100));
                 } else if(rawLayout[i][j] == 'f') {
                     hiddenTiles.Add(vec);
                     furnitureMap.Add(vec, Resources.Load<GameObject>("Cursed_Couch"));
-                    furnitureRotationMap.Add(vec, Quaternion.Euler(285, 350, 10));
+                    furnitureRotationMap.Add(vec, Quaternion.Euler(-130, 110, 150));
                 }
             }
         }
@@ -92,11 +92,7 @@ public class MazeController : MonoBehaviour {
             if(!furnitureMap.TryGetValue(tilePos, out furniture)) {
                 InstantiateTile(tilePos);
             } else {
-                // Instantiate(furniture, GetTilePosition(tilePos), furnitureRotationMap[tilePos]);
-                Instantiate(furniture, GetTilePosition(tilePos), Quaternion.Euler(0, 0, 0));
-                Debug.Log(furniture.transform.rotation);
-                furniture.transform.LookAt(new Vector3(10, 100, 10));
-                Debug.Log(furniture.transform.rotation);
+                Instantiate(furniture, GetTilePosition(tilePos), furnitureRotationMap[tilePos]);
             }
         }
     }
