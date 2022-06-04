@@ -14,7 +14,7 @@ public class MazeController : MonoBehaviour {
     Vector3 GetTilePosition(Vector2 pos) {
         Vector3 basePosition = gameObject.transform.position;
 
-        return new Vector3(basePosition.x + pos.x * tileDims.x, basePosition.y, basePosition.z - pos.y * tileDims.y);
+        return new Vector3(basePosition.x + pos.y * tileDims.x, basePosition.y, basePosition.z - pos.x * tileDims.y);
     } 
 
     List<Vector2> GetTilesToUncover(Vector2 pos) {
@@ -43,7 +43,7 @@ public class MazeController : MonoBehaviour {
         tileDims = new Vector2(tileSize.x, tileSize.z);
 
         string[] rawLayout = new string[]{
-            "......S.",
+            "x.....Sx",
             "......x.",
             ".bxx..x.",
             "...x..x.",
@@ -53,7 +53,7 @@ public class MazeController : MonoBehaviour {
             ".x.x....",
             ".x.f....",
             ".x......",
-            ".xx...."
+            "xxx....x"
         };
 
 
@@ -67,19 +67,19 @@ public class MazeController : MonoBehaviour {
                 } else if(rawLayout[i][j] == 'b') {
                     hiddenTiles.Add(vec);
                     furnitureMap.Add(vec, Resources.Load<GameObject>("Cursed_Bed"));
-                    furnitureRotationMap.Add(vec, Quaternion.Euler(15, 0, -45));
+                    furnitureRotationMap.Add(vec, Quaternion.Euler(-80, 4, 20));
                 } else if(rawLayout[i][j] == 'c') {
                     hiddenTiles.Add(vec);
                     furnitureMap.Add(vec, Resources.Load<GameObject>("Cursed_Chair"));
-                    furnitureRotationMap.Add(vec, Quaternion.Euler(-120, 170, 200));
+                    furnitureRotationMap.Add(vec, Quaternion.Euler(-40, -20, -90));
                 } else if(rawLayout[i][j] == 'o') {
                     hiddenTiles.Add(vec);
                     furnitureMap.Add(vec, Resources.Load<GameObject>("Cursed_Cooker"));
-                    furnitureRotationMap.Add(vec, Quaternion.Euler(305, 295, 300));
+                    furnitureRotationMap.Add(vec, Quaternion.Euler(-40, 40, -100));
                 } else if(rawLayout[i][j] == 'f') {
                     hiddenTiles.Add(vec);
                     furnitureMap.Add(vec, Resources.Load<GameObject>("Cursed_Couch"));
-                    furnitureRotationMap.Add(vec, Quaternion.Euler(285, 350, 10));
+                    furnitureRotationMap.Add(vec, Quaternion.Euler(-130, 110, 150));
                 }
             }
         }
