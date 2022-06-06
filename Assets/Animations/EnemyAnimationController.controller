@@ -10,16 +10,16 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: DistanceFromPlayer
-    m_EventTreshold: 15
+    m_EventTreshold: 12
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8468710977643287778}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.18035473
+  m_TransitionDuration: 0.04649339
   m_TransitionOffset: 0
-  m_ExitTime: 0.075265236
+  m_ExitTime: 0.0044305283
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -87,7 +87,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: DistanceFromPlayer
-    m_EventTreshold: 15
+    m_EventTreshold: 11
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5549926653729149187}
   m_Solo: 0
@@ -116,7 +116,7 @@ AnimatorController:
     m_DefaultFloat: 35
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

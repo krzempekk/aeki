@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootTowards : MonoBehaviour
+public class ShootInDirection : MonoBehaviour
 {
 
     public Transform player;
 
     public double minDistance = 1;
-    public float thrust = 20f;
+    public Vector3 shootDirection = new Vector3(20f, 0, 0);
     public float speed = 1f;
     public GameObject walls;
     private bool alreadyActivated;
@@ -36,8 +36,7 @@ public class ShootTowards : MonoBehaviour
     {
         if (shouldMove)
         {
-            rigidbody.MovePosition(transform.position + new Vector3(thrust, 0, 0) * speed * Time.fixedDeltaTime);
-          //  speed = speed / 2f;
+            rigidbody.MovePosition(transform.position + shootDirection * speed * Time.fixedDeltaTime);
         }
 
     }
