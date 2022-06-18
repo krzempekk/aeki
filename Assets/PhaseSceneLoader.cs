@@ -4,9 +4,8 @@ using UnityEngine.SceneManagement;
 public class PhaseSceneLoader : MonoBehaviour
 {
 
-    private string[] PHASE1_SCENES = {"Enterance", "Living room", "Kitchen", "Bedroom", "Children room", "Item hall"};
-
-    private bool isPhase1Loaded = false;
+    private static string[] PHASE1_SCENES = {"Enterance", "Living room", "Kitchen", "Bedroom", "Children room", "Item hall"};
+    private static string[] PHASE2_SCENES = {"P2ItemHall", "ChildrenRoom", "P2Bedroom"};
 
     // Start is called before the first frame update
     void Start()
@@ -14,19 +13,12 @@ public class PhaseSceneLoader : MonoBehaviour
         LoadPhase1();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     
-    private void LoadPhase1()
+    static public void LoadPhase1()
     {
         Scene[] loadedScenes = GetLoadedScenes();        
         foreach(string sceneName in PHASE1_SCENES)
         {
-            Debug.Log(sceneName);
             if (!IsSceneLoaded(sceneName, loadedScenes))
             {
                 SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -35,7 +27,34 @@ public class PhaseSceneLoader : MonoBehaviour
         }
     }
 
-    private bool IsSceneLoaded(string sceneName, Scene[] loadedScenes)
+    static private void UnloadPhase1()
+    {
+        Scene[] loadedScenes = GetLoadedScenes();        
+        foreach(string sceneName in PHASE1_SCENES)
+        {
+            if (IsSceneLoaded(sceneName, loadedScenes))
+            {
+                SceneManager.UnloadSceneAsync(sceneName);
+                Debug.Log("Unloading: " + sceneName);
+            }
+        }
+    }
+
+    static public void LoadPhase2()
+    {
+        Scene[] loadedScenes = GetLoadedScenes();        
+        foreach(string sceneName in PHASE2_SCENES)
+        {
+            if (!IsSceneLoaded(sceneName, loadedScenes))
+            {
+                SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+                Debug.Log("Loading: " + sceneName);
+            }
+        }
+        UnloadPhase1();
+    }
+
+    static private bool IsSceneLoaded(string sceneName, Scene[] loadedScenes)
     {
         foreach(Scene scene in loadedScenes)
         {
@@ -47,7 +66,7 @@ public class PhaseSceneLoader : MonoBehaviour
         return false;
     }
 
-    private Scene[] GetLoadedScenes()
+    static private Scene[] GetLoadedScenes()
     {
         Scene[] loaded = new Scene[SceneManager.sceneCount];
         for (int i = 0; i < SceneManager.sceneCount; ++i) 
