@@ -6,12 +6,13 @@ public class ChangeAnimation : MonoBehaviour
 {
 
     private Animator animator;
-    public Transform player;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        this.animator = GetComponent<Animator>();
+        this.player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

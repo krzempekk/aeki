@@ -5,8 +5,6 @@ using UnityEngine;
 public class ShootInDirection : MonoBehaviour
 {
 
-    public Transform player;
-
     public double minDistance = 1;
     public Vector3 shootDirection = new Vector3(20f, 0, 0);
     public float speed = 1f;
@@ -14,10 +12,12 @@ public class ShootInDirection : MonoBehaviour
     private bool alreadyActivated;
     private bool shouldMove;
     private Rigidbody rigidbody;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
+        this.player = GameObject.FindGameObjectWithTag("Player").transform;
         this.alreadyActivated = false;
         this.rigidbody = GetComponent<Rigidbody>();
     }

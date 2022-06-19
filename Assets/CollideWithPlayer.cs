@@ -11,7 +11,12 @@ public class CollideWithPlayer : MonoBehaviour
 
     void Start()
     {
-        resets = objectsToReset.ConvertAll(new Converter<GameObject, ResetPosition>(GetResetPosition));
+        // var objects =;  
+        // objectsToReset.AddRange(objects);
+        // resets = objectsToReset.ConvertAll(new Converter<GameObject, ResetPosition>(GetResetPosition));
+
+        resets = new List<ResetPosition>();
+        resets.AddRange(FindObjectsOfType(typeof(ResetPosition)) as ResetPosition[]);
     }
 
     public static ResetPosition GetResetPosition(GameObject gameObject)
