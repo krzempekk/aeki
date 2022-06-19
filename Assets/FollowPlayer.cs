@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player; //drag and stop player object in the inspector
+    private Transform player;
     public float minDistance;
     public float hitDistance;
     public float speed;
     RaycastHit hit;
+
+    public void Start()
+    {
+        this.player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     public void Update()
     {
@@ -28,9 +33,11 @@ public class FollowPlayer : MonoBehaviour
         {
             if (Physics.Raycast(rayPosition, (playerHeadPosition - rayPosition), out hit, Mathf.Infinity))
             {
-                if (hit.transform.name == "PlayerCapsule")
+                Debug.Log(hit.transform);
+
+                if (hit.transform.tag == "Player")
                 {
-                    //Debug.Log("enemy should go");
+                    Debug.Log("enemy should go");
 
                     transform.position = Vector3.MoveTowards(transform.position, playerPosition2D, speed);
                 }
