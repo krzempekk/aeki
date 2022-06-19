@@ -7,7 +7,7 @@ public class CollectAndTransition : MonoBehaviour
 {
 
     public GameObject collectPrompt;
-    public KeyCode key;
+    public int button;  // 0 - LMB, 1 - RMB, 2 - MMB
     
     private bool isPlayerInside = false;
 
@@ -20,7 +20,7 @@ public class CollectAndTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(key) && isPlayerInside)
+        if (Input.GetMouseButtonDown(button) && isPlayerInside)
         {
             PhaseSceneLoader.LoadPhase2();
             gameObject.SetActive(false);

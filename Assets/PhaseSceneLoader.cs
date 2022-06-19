@@ -5,7 +5,7 @@ public class PhaseSceneLoader : MonoBehaviour
 {
 
     private static string[] PHASE1_SCENES = {"Enterance", "Living room", "Kitchen", "Bedroom", "Children room", "Item hall"};
-    private static string[] PHASE2_SCENES = {"P2ItemHall", "ChildrenRoom", "P2Bedroom"};
+    private static string[] PHASE2_SCENES = {"P2ItemHall", "ChildrenRoom", "P2Bedroom", "P2Kitchen"};
 
     // Start is called before the first frame update
     void Start()

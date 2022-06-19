@@ -3234,7 +3234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press [E] to collect
+  m_Text: Press [LMB] to collect
 --- !u!222 &1314202680
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6482,6 +6482,10 @@ PrefabInstance:
     - target: {fileID: 1911186874076687963, guid: 458b15f55a5d43046b586fa3570a87de, type: 3}
       propertyPath: m_Name
       value: TheItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911186874076687964, guid: 458b15f55a5d43046b586fa3570a87de, type: 3}
+      propertyPath: key
+      value: 268
       objectReference: {fileID: 0}
     - target: {fileID: 1911186874076687964, guid: 458b15f55a5d43046b586fa3570a87de, type: 3}
       propertyPath: collectPrompt
