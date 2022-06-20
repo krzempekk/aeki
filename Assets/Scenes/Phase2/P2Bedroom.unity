@@ -762,7 +762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: 10
   hitDistance: 1
-  speed: 0.01
+  speed: 0.015
 --- !u!114 &114686432
 MonoBehaviour:
   m_ObjectHideFlags: 0
